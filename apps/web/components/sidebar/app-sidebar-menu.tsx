@@ -6,7 +6,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@workspace/ui/components/sidebar";
-import { getTranslatedSidebarItems } from "@/components/sidebar/sidebar-items";
+import { useTranslatedSidebarItems } from "@/components/sidebar/sidebar-items";
 import { cn } from "@workspace/ui/lib/utils";
 
 function isSidebarItemSelected(path: string, url: string) {
@@ -15,7 +15,7 @@ function isSidebarItemSelected(path: string, url: string) {
 
 const AppSidebarMenu = () => {
   const path = usePathname();
-  const items = getTranslatedSidebarItems();
+  const items = useTranslatedSidebarItems();
   return (
     <SidebarMenu>
       {items.map((item) => (

@@ -6,6 +6,7 @@ import AppSidebar from "@/components/sidebar/app-sidebar";
 import {SidebarTrigger} from "@workspace/ui/components/sidebar";
 import {ReactNode} from "react";
 import {i18nConfig} from "@/i18nConfig";
+import {getTranslatedSidebarItems} from "@/components/sidebar/sidebar-items";
 
 const fontSans = Geist({
     subsets: ["latin"],
@@ -18,24 +19,29 @@ const fontMono = Geist_Mono({
 })
 
 
-
 export function generateStaticParams() {
-    return i18nConfig.locales.map((locale) => ({ locale }));
+    return i18nConfig.locales.map((locale) => ({locale}));
 }
 
 
-export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
+export default async function RootLayout({
+                                             children,
+                                             params
+                                         }: Readonly<{
     children: ReactNode
+    params: Promise<{ locale: string }>
 }>) {
+
+    const sidebarItems = await getTranslatedSidebarItems({locale:(await params).locale})
+
+
     return (
         <html lang="en" suppressHydrationWarning>
         <body
             className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
         >
         <Providers>
-            <AppSidebar/>
+            <AppSidebar sidebarItems={sidebarItems}/>
             <main>
                 <SidebarTrigger/>
                 {children}

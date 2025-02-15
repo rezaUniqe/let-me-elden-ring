@@ -6,10 +6,15 @@ import {
     SidebarHeader,
     SidebarMenu, SidebarMenuButton, SidebarMenuItem
 } from '@workspace/ui/components/sidebar';
-import React from 'react';
-import {sidebarItems} from "@/components/sidebar/sidebar-items";
+import { ElementType} from "react";
 
-const AppSidebar = () => {
+
+interface Props{
+    sidebarItems: { title:string,icon:ElementType,url:string }[];
+}
+
+
+const AppSidebar = ({sidebarItems}:Props) => {
     return (
         <Sidebar>
             <SidebarHeader />

@@ -10,7 +10,11 @@ export default async function initTranslations(
     namespaces: Array<keyof Resources>,
     i18nInstance?: ReturnType<typeof createInstance>,
     resources?: Resource,
-): Promise<unknown>{
+):Promise<{
+    i18n?: ReturnType<typeof createInstance>,
+    resources: Resource,
+    t: ReturnType<typeof createInstance>['t']
+}>{
     const activeI18nInstance = i18nInstance || createInstance();
     activeI18nInstance.use(initReactI18next);
 

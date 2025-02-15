@@ -1,4 +1,4 @@
-import { Providers } from "@/components/providers";
+import { Providers } from "@/providers/providers";
 import AppSidebar from "@/components/sidebar/app-sidebar";
 import { ReactNode } from "react";
 import {SidebarTrigger} from "@workspace/ui/components/sidebar";

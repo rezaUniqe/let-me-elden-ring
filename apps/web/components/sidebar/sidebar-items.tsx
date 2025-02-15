@@ -1,19 +1,18 @@
-import {Home, Inbox} from "lucide-react"
-import {useTranslation} from "react-i18next";
+import { BookLockIcon, Book } from "lucide-react";
+import { useWebTranslations } from "@/hooks/use-web-translations";
 
-
-export  function getTranslatedSidebarItems() {
-    const {t} = useTranslation("common")
-    return [
-        {
-            title: t("sidebar.myShelf"),
-            url: "/my-shelf",
-            icon: Home
-        },
-        {
-            title: t("sidebar.books"),
-            url: "/",
-            icon: Inbox,
-        }]
-
+export function useTranslatedSidebarItems() {
+  const { t } = useWebTranslations("common");
+  return [
+    {
+      title: t("sidebar.books"),
+      url: "/",
+      icon: Book,
+    },
+    {
+      title: t("sidebar.myShelf"),
+      url: "/my-shelf",
+      icon: BookLockIcon,
+    },
+  ];
 }

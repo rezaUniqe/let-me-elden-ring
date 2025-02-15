@@ -1,18 +1,18 @@
 import {Home, Inbox} from "lucide-react"
-import initTranslations from "@/app/i18n";
+import {useTranslation} from "react-i18next";
 
 
-export async function getTranslatedSidebarItems({locale}: { locale: string }) {
-    const {t} = await initTranslations(locale, ["common"])
+export  function getTranslatedSidebarItems() {
+    const {t} = useTranslation("common")
     return [
         {
-            title: t("common:sidebar.myShelf"),
-            url: "#",
+            title: t("sidebar.myShelf"),
+            url: "/my-shelf",
             icon: Home
         },
         {
-            title: t("common:sidebar.books"),
-            url: "#",
+            title: t("sidebar.books"),
+            url: "/",
             icon: Inbox,
         }]
 

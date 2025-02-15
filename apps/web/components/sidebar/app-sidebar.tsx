@@ -4,34 +4,20 @@ import {
     SidebarFooter,
     SidebarGroup,
     SidebarHeader,
-    SidebarMenu, SidebarMenuButton, SidebarMenuItem
 } from '@workspace/ui/components/sidebar';
-import { ElementType} from "react";
+import AppSidebarMenu from "@/components/sidebar/app-sidebar-menu";
 
 
-interface Props{
-    sidebarItems: { title:string,icon:ElementType,url:string }[];
-}
 
-
-const AppSidebar = ({sidebarItems}:Props) => {
+const AppSidebar = () => {
     return (
         <Sidebar>
-            <SidebarHeader />
             <SidebarContent>
+                <SidebarHeader >
+                    <h1 className="text-2xl font-bold">Libera</h1>
+                </SidebarHeader>
                 <SidebarGroup>
-                    <SidebarMenu>
-                        {sidebarItems.map((item) => (
-                            <SidebarMenuItem key={item.title}>
-                                <SidebarMenuButton asChild>
-                                    <a href={item.url}>
-                                        <item.icon />
-                                        <span>{item.title}</span>
-                                    </a>
-                                </SidebarMenuButton>
-                            </SidebarMenuItem>
-                        ))}
-                    </SidebarMenu>
+                        <AppSidebarMenu/>
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter />

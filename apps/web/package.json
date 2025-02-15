@@ -7,11 +7,13 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "toc": "i18next-resources-for-ts interface -i ./app/locales/fa -o ./@types/resources.d.ts",
     "lint": "next lint"
   },
   "dependencies": {
     "@workspace/ui": "workspace:*",
     "i18next": "^24.2.2",
+    "i18next-resources-for-ts": "^1.5.0",
     "i18next-resources-to-backend": "^1.2.1",
     "lucide-react": "0.456.0",
     "next": "^15.1.7",

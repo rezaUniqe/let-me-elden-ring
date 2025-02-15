@@ -1,9 +1,11 @@
 import {Geist, Geist_Mono} from "next/font/google"
 
-import "@workspace/ui/globals.css"
+import "@workspace/ui/styles/globals.css"
 import {Providers} from "@/components/providers"
 import AppSidebar from "@/components/sidebar/app-sidebar";
 import {SidebarTrigger} from "@workspace/ui/components/sidebar";
+import {ReactNode} from "react";
+import {i18nConfig} from "@/i18nConfig";
 
 const fontSans = Geist({
     subsets: ["latin"],
@@ -15,10 +17,17 @@ const fontMono = Geist_Mono({
     variable: "--font-mono",
 })
 
+
+
+export function generateStaticParams() {
+    return i18nConfig.locales.map((locale) => ({ locale }));
+}
+
+
 export default function RootLayout({
                                        children,
                                    }: Readonly<{
-    children: React.ReactNode
+    children: ReactNode
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>

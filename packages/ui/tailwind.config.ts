@@ -1,8 +1,9 @@
 import type { Config } from "tailwindcss"
 import tailwindcssAnimate from "tailwindcss-animate"
-import { fontFamily } from "tailwindcss/defaultTheme"
+import { fontFamily } from "tailwindcss/defaultTheme.js"
 
-const config = {
+
+const baseUiTailwindConfig = {
   darkMode: ["class"],
   content: [
     "app/**/*.{ts,tsx}",
@@ -76,4 +77,4 @@ const config = {
   plugins: [tailwindcssAnimate],
 } satisfies Config
 
-export default config
+export default baseUiTailwindConfig

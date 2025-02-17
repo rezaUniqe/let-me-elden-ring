@@ -6,10 +6,10 @@ services:
     env_file:
       - .env
     ports:
-    - "127.0.0.1:${DATABASE_PORT}:3306"
+    - "0.0.0.0:${DATABASE_PORT}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-  web:
+  front:
     image: ${FRONT_IMAGE_NAME}
     env_file: apps/front/.env
     build:
@@ -19,6 +19,8 @@ services:
     ports:
       - "0.0.0.0:${FRONT_PORT}:3000"
   backend:
+    depends_on:
+      - database
     image: ${BACKEND_IMAGE_NAME}
     env_file: apps/backend/.env
     build:

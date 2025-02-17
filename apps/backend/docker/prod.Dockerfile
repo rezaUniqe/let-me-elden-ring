@@ -26,11 +26,12 @@ WORKDIR /app
 COPY .gitignore .gitignore
 COPY turbo.json turbo.json
 COPY --from=builder /app/out/full/ .
-COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
 COPY --from=builder /app/out/pnpm-workspace.yaml ./pnpm-workspace.yaml
 RUN pnpm install --frozen-lockfile
 RUN turbo build --filter=backend
+RUN ls -la
+
 
 
 FROM alpine AS runner
@@ -38,8 +39,6 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 USER nextjs
-COPY --from=installer --chown=nextjs:nodejs /app/apps/backend/dist ./dist
+COPY --from=installer  /app/ .
 
-
-
-CMD HOSTNAME="0.0.0.0" node dist/main.js
+CMD [ "node", "apps/backend/dist/main.js" ]

@@ -5,7 +5,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { VariantProps, cva } from "class-variance-authority"
 import { PanelLeft } from "lucide-react"
 
-import {cn} from "../lib/utils.js";
+import {cn} from "../lib/utils";
 
 import {
   Tooltip,
@@ -13,12 +13,12 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@workspace/ui/components/tooltip"
-import {useIsMobile} from "../hooks/use-mobile.js";
-import {Sheet, SheetContent} from "./sheet.js";
-import {Button} from "./button.js";
-import {Input} from "./input.js";
-import {Separator} from "./separator.js";
-import { Skeleton } from "./skeleton.js"
+import {useIsMobile} from "../hooks/use-mobile";
+import {Sheet, SheetContent} from "./sheet";
+import {Button} from "./button";
+import {Input} from "./input";
+import {Separator} from "./separator";
+import { Skeleton } from "./skeleton"
 
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"

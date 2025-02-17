@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "@workspace/ui/styles/globals.css";
+import "@workspace/ui/globals.css";
 import { ReactNode } from "react";
 import { i18nConfig } from "../../i18nConfig";
 import {PublicEnvScript} from "next-runtime-env";

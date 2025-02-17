@@ -1,8 +1,23 @@
 {
-  "extends": "@workspace/typescript-config/react-library.json",
+  "extends": "@repo/typescript-config/react-library.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "types": ["dom","node"],
+    "lib": ["ES2022","dom"],
+    "allowSyntheticDefaultImports": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "strict": true,
+    "paths": {
+      "react": ["node_modules/@types/react"]
+    }
   },
-  "include": ["src", "turbo"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "**/*.ts",
+  ],
+  "exclude": ["node_modules"]
 }

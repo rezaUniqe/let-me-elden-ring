@@ -11,6 +11,15 @@ export class Book {
   @Column()
   author: string;
 
-  @Column({ default: true })
-  isAvailable: boolean;
+  @Column()
+  coverImage: string;
+
+  @Column()
+  description: string;
+
+  @Column()
+  genre: string;
+
+  @Column()
+  publicationYear: string;
 }

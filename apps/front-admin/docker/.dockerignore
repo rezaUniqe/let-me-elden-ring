@@ -1,0 +1,4 @@
+node_modules
+.next
+dev.Dockerfile
+prod.Dockerfile

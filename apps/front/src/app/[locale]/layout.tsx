@@ -1,7 +1,6 @@
 import { Providers } from "@/providers/providers";
 import AppSidebar from "@/components/sidebar/app-sidebar";
 import { ReactNode } from "react";
-import {SidebarTrigger} from "@workspace/ui/components/sidebar";
 
 async function Layout({
   children,
@@ -15,7 +14,6 @@ async function Layout({
   return (
     <Providers locale={locale}>
       <AppSidebar />
-      <SidebarTrigger/>
       {children}
     </Providers>
   );

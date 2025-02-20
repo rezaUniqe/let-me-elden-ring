@@ -3,7 +3,6 @@ import { JwtService } from '@nestjs/jwt';
 import * as crypto from 'crypto';
 import { LoginUserDTO } from '../user/dto/loginUserDTO';
 import { UserService } from '../user/user.service';
-import { User } from '../user/entities/user.entity';
 
 @Injectable()
 export class AuthService {
@@ -20,11 +19,7 @@ export class AuthService {
       .digest('hex');
 
     if (user) {
-      if (user.password === passwordHash) {
-        return true;
-      } else {
-        return false;
-      }
+      return user.password === passwordHash;
     } else {
       await this.usersService.create({
         username: dto.username,

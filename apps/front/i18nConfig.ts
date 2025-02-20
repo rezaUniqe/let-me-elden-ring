@@ -1,5 +1,9 @@
+
 export const i18nConfig = {
     locales: ["fa","en"],
-    defaultLocale: 'fa'
+    defaultLocale: "fa",
+    localeDetector: () => {
+        return 'fa';
+    }
 };
 

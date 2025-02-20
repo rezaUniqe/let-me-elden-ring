@@ -19,17 +19,17 @@ const AppSidebarMenu = () => {
   return (
     <SidebarMenu>
       {items.map((item) => (
-        <SidebarMenuItem key={item.title}>
+        <SidebarMenuItem  key={item.title}>
           <SidebarMenuButton asChild>
             <Link
               className={cn(
-                " py-3",
+                " py-6",
                 isSidebarItemSelected(path, item.url) &&
-                  "bg-gray-500 text-white hover:bg-gray-500 hover:text-white",
+                  "bg-gray-500 text-white hover:!bg-gray-500 hover:!text-white",
               )}
               href={item.url}
             >
-              <item.icon />
+              <item.icon className={"scale-150"} />
               <span>{item.title}</span>
             </Link>
           </SidebarMenuButton>

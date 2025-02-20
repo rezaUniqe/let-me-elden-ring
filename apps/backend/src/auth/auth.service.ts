@@ -12,7 +12,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(dto: LoginUserDTO): Promise<User | null> {
+  async validateUser(dto: LoginUserDTO): Promise<boolean> {
     const user = await this.usersService.findOne(dto.username);
     const passwordHash = crypto
       .createHash('md5')
@@ -21,21 +21,22 @@ export class AuthService {
 
     if (user) {
       if (user.password === passwordHash) {
-        return user;
+        return true;
       } else {
-        return null;
+        return false;
       }
     } else {
-      return this.usersService.create({
+      await this.usersService.create({
         username: dto.username,
         password: passwordHash,
       });
+      return true;
     }
   }
 
   async login(user: LoginUserDTO): Promise<string | null> {
-    const validateUser = await this.validateUser(user);
-    if (validateUser) {
+    const userIsValid = await this.validateUser(user);
+    if (userIsValid) {
       return this.jwtService.sign(user);
     } else {
       return null;

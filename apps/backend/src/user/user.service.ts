@@ -12,8 +12,8 @@ export class UserService {
     private userRepo: Repository<User>,
   ) {}
 
-  create(createUserDto: CreateUserDto) {
-    return this.userRepo.create({
+  async create(createUserDto: CreateUserDto): Promise<void> {
+    await this.userRepo.insert({
       username: createUserDto.username,
       password: createUserDto.password,
     });

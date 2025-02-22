@@ -11,9 +11,9 @@ import AppSidebarMenu from "./app-sidebar-menu";
 const AdminSidebar = () => {
   return (
     <Sidebar collapsible={"icon"} variant={"inset"}>
-      <SidebarTrigger className={"absolute -right-[14px]"} />
+      <SidebarTrigger className={"md:absolute md:-right-[14px]"} />
       <SidebarContent>
-        <SidebarHeader>
+        <SidebarHeader className={"group-data-[collapsible=icon]:opacity-0"}>
           <h1 className="text-2xl font-bold">Libera</h1>
         </SidebarHeader>
         <SidebarGroup>

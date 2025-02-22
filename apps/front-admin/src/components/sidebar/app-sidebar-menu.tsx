@@ -21,9 +21,10 @@ const AppSidebarMenu = () => {
       {items.map((item) => (
         <SidebarMenuItem key={item.title}>
           <SidebarMenuButton
-            className={
-              "!rounded-[8px] min-h-[40px] group-data-[collapsible=icon]:w-[40px] data-[active]:bg-red-500"
-            }
+            className={cn(
+              "!rounded-[8px] min-h-[40px] min-w-[40px]",
+              "group-data-[collapsible=icon]:w-[40px] data-[active]:bg-gray-900",
+            )}
             asChild
             isActive={isSidebarItemSelected(path, item.url)}
           >

@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.66.7",
+    "@tanstack/react-query": "^5.66.9",
     "@workspace/ui": "workspace:*",
     "axios": "^1.7.9",
     "i18next": "^24.2.2",
@@ -30,8 +30,8 @@
     "@eslint/eslintrc": "3.2.0",
     "@tanstack/eslint-plugin-query": "^5.66.1",
     "@types/node": "20.6.0",
-    "@types/react": "18.3.0",
-    "@types/react-dom": "18.3.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "@workspace/eslint-config": "workspace:^",
     "@workspace/typescript-config": "workspace:*",
     "eslint": "9.20.1",

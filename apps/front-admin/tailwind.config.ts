@@ -3,9 +3,8 @@ import baseUiTailwindConfig from "@workspace/ui/tailwind.config";
 
 export default {
   presets: [baseUiTailwindConfig],
-
   content: [
-    "../../packages/ui/src/**/*.{ts,tsx}",
+    "../../packages/ui/**/*.{ts,tsx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
 } satisfies Config;

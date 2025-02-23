@@ -1,16 +1,4 @@
 services:
-  database:
-    image: mysql:8
-    container_name: library-mysql
-    restart: always
-    networks:
-      - libera-net
-    env_file:
-      - .env
-    ports:
-    - '${DATABASE_PORT}:3306'
-    volumes:
-      - mysql_data:/var/lib/mysql
   front:
     image: ${FRONT_IMAGE_NAME}
     env_file: apps/front/.env
@@ -22,26 +10,6 @@ services:
     restart: always
     ports:
       - '${FRONT_PORT}:3000'
-  backend:
-    depends_on:
-        - database
-    image: ${BACKEND_IMAGE_NAME}
-    env_file: apps/backend/.env
-    networks:
-      - libera-net
-    build:
-      context: .
-      dockerfile: ./apps/backend/docker/prod.Dockerfile
-    restart: always
-    ports:
-      - '${BACKEND_PORT}:8585'
-  adminer:
-     image: adminer
-     networks:
-       - libera-net
-     restart: always
-     ports:
-      - '8080:8080'
 volumes:
   mysql_data:
 networks:

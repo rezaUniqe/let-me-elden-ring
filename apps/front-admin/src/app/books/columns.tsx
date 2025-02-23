@@ -16,14 +16,15 @@ export const columns: ColumnDef<Book>[] = [
     id: "image-title",
     cell: ({ row }) => {
       return (
-        <div className={"flex flex-row gap-3 items-center"}>
-          <Image
-            width={35}
-            height={35}
-            className={"rounded"}
-            src={row.original.coverImage}
-            alt={"book image"}
-          />
+        <div className={"flex   flex-row gap-3 items-center"}>
+          <div className={"w-[35px] relative h-[35px]"}>
+            <Image
+              fill
+              className={"rounded"}
+              src={row.original.coverImage}
+              alt={"book image"}
+            />
+          </div>
           <p>{row.original.title}</p>
         </div>
       );

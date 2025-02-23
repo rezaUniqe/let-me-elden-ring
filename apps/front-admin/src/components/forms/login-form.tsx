@@ -1,50 +1,46 @@
 "use client";
 
-import * as z from "zod";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@workspace/ui/components/form";
+import { Input } from "@workspace/ui/components/input";
+import { Button } from "@workspace/ui/components/button";
+import { useLoginForm } from "@/components/forms/hook/use-login-form";
 
-const formSchema = z.object({
-  email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
-});
+interface Props {
+  onLogin: () => void;
+}
 
-export default function LoginForm() {
-  const [isLoading, setIsLoading] = useState(false);
-
-  // Initialize form with Zod schema
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: "",
-      password: "",
-    },
+export default function LoginForm({ onLogin }: Props) {
+  const { formProps, isLoading, handleSubmit } = useLoginForm({
+    onLogin: onLogin,
   });
-
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsLoading(true);
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(values);
-
-    setIsLoading(false);
-  }
-
   return (
-    <Card className="mx-auto max-w-sm">
+    <div className="mx-auto w-full p-0">
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl font-bold">Login</CardTitle>
         <CardDescription>
           Enter your email and password to login to your account
         </CardDescription>
       </CardHeader>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <Form {...formProps}>
+        <form onSubmit={handleSubmit} className="space-y-4">
           <CardContent className="space-y-4">
             <FormField
-              control={form.control}
+              control={formProps.control}
               name="email"
               render={({ field }) => (
                 <FormItem>
@@ -62,7 +58,7 @@ export default function LoginForm() {
               )}
             />
             <FormField
-              control={form.control}
+              control={formProps.control}
               name="password"
               render={({ field }) => (
                 <FormItem>
@@ -82,14 +78,12 @@ export default function LoginForm() {
           </CardContent>
           <CardFooter>
             <Button className="w-full" type="submit" disabled={isLoading}>
-              {isLoading && (
-                <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-              )}
+              {isLoading && "loading..."}
               Sign in
             </Button>
           </CardFooter>
         </form>
       </Form>
-    </Card>
+    </div>
   );
 }

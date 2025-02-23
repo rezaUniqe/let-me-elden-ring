@@ -1,4 +1,15 @@
 services:
+  backend:
+    image: ${BACKEND_IMAGE_NAME}
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
+    restart: always
+    ports:
+      - '${BACKEND_PORT}:3002'
+    networks:
+      - libera-net
+
   front:
     image: ${FRONT_IMAGE_NAME}
     env_file: apps/front/.env
@@ -10,7 +21,5 @@ services:
     restart: always
     ports:
       - '${FRONT_PORT}:3000'
-volumes:
-  mysql_data:
 networks:
   libera-net:

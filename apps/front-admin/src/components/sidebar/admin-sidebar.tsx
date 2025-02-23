@@ -10,7 +10,7 @@ import AppSidebarMenu from "./app-sidebar-menu";
 
 const AdminSidebar = () => {
   return (
-    <Sidebar collapsible={"icon"} variant={"inset"}>
+    <Sidebar className={"shadow-lg"} collapsible={"icon"} variant={"inset"}>
       <SidebarTrigger className={"md:absolute md:-right-[14px]"} />
       <SidebarContent>
         <SidebarHeader className={"group-data-[collapsible=icon]:opacity-0"}>

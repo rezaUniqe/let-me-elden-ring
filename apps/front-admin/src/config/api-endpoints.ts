@@ -11,5 +11,5 @@ export const ApiEndpoints = {
     buildApiUrl(`/api/collections/users/records/${id}`),
   deleteBook: (id: number) => buildApiUrl(`/books/${id}`),
   getBook: (id: number) => buildApiUrl(`/books/${id}`),
-  getAllBooks: buildApiUrl("/books"),
+  getAllBooks: buildApiUrl("/api/collections/books/records"),
 };

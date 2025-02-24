@@ -10,7 +10,7 @@ async function getData(): Promise<Book[]> {
   return [
     {
       id: 1,
-      genre: "",
+      genre: "horror",
       publicationYear: 1998,
       coverImage: "/book.jpg",
       title: "The Great Adventure",

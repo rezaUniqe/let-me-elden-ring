@@ -9,3 +9,5 @@ export const bookSchema = z.object({
   author: z.string(),
   publicationYear: z.number(),
 });
+
+export type RawBook = z.infer<typeof bookSchema>;

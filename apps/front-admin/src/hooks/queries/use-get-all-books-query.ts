@@ -4,6 +4,9 @@ import { networkClient } from "@/lib/axios";
 import { RawPagedBooks } from "@/model/api/books/get-all-books";
 import { PagedData } from "@/model/paged-data";
 import { Book } from "@/model/book";
+import { bookMapper, pagedDataConvertor } from "@/model/convertors/convert";
+import { createPagedDataSchema } from "@/model/api/create-paged-data-schema";
+import { bookSchema } from "@/model/api/books/raw-book";
 
 export const useGetAllBooksQuery = createSuspenseQuery<PagedData<Book>>({
   queryKey: ["get-all-books"],
@@ -11,16 +14,7 @@ export const useGetAllBooksQuery = createSuspenseQuery<PagedData<Book>>({
     const response = await networkClient.get<RawPagedBooks>(
       ApiEndpoints.getAllBooks,
     );
-    return response.data.items.map((rawBook) => {
-      return {
-        id: rawBook.id,
-        genre: rawBook.genre,
-        coverImage: rawBook.coverImage,
-        title: rawBook.title,
-        author: rawBook.author,
-        description: rawBook.description,
-        publicationYear: rawBook.publicationYear,
-      };
-    });
+    const parsedRes = createPagedDataSchema(bookSchema).parse(response.data);
+    return pagedDataConvertor(bookMapper, parsedRes);
   },
 });

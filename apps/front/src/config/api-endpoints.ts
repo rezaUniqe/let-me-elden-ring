@@ -1,13 +1,9 @@
 
 function buildApiUrl(path: string) {
-    return `${process.env.BASEURL}${path}`;
+    return `${process.env.NEXT_PUBLIC_API_URL}${path}`;
 }
 
 
 export const ApiEndpoints={
-    createBook:(id:number)=>buildApiUrl(`/books/${id}`),
-    updateBook:(id:number)=>buildApiUrl(`/books/${id}`),
-    deleteBook:(id:number)=>buildApiUrl(`/books/${id}`),
-    getBook:(id:number)=>buildApiUrl(`/books/${id}`),
-    getAllBooks:buildApiUrl('/books'),
+    getALlItems:buildApiUrl(`/api/items`),
 }

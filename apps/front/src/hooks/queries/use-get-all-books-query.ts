@@ -1,11 +1,11 @@
-import {createQuery} from "react-query-kit";
+import {createSuspenseQuery} from "react-query-kit";
 import {reactQueryKeys} from "@/config/react-query-keys";
-import {Book} from "@/model/book";
-import {bookService} from "@/services";
+import {itemsService} from "@/services";
+import {ItemResponseSchema} from "@/model/api/item/item-schema";
 
-export const useGetAllBooksQuery=createQuery<Book[],void>({
-    queryKey:reactQueryKeys.queries.getAllBooks,
-    fetcher:async()=>{
-        return await bookService.getBooks()
+export const useAllItemsQuery = createSuspenseQuery<ItemResponseSchema, void>({
+    queryKey: reactQueryKeys.queries.getAllItems,
+    fetcher: async () => {
+        return await itemsService.getAllItems()
     }
 })

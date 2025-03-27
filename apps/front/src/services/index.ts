@@ -1,3 +1,3 @@
-import {BookServiceImpl} from "@/services/book/book-service-impl";
+import {ItemsServiceImpl} from "@/services/item/items-service-impl";
 
-export const bookService = new BookServiceImpl();
+export const itemsService = new ItemsServiceImpl();

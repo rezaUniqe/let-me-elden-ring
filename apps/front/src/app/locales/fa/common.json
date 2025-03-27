@@ -1,7 +1,10 @@
 {
   "save": "ذخیره",
   "sidebar": {
-    "myShelf": "کتابخانه من",
-    "books": "کتاب‌ها"
+    "items": "ایتم‌ها",
+    "armors": "زره‌ها",
+    "weapons": "اسلحه‌ها" ,
+    "talismans": "طلسم‌ها",
+    "shields": "سپرها"
   }
 }

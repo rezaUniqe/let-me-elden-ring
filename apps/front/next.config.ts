@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
     output:process.env.NODE_ENV === "production" ? "standalone" : undefined,
     transpilePackages: ["@workspace/ui"],
     outputFileTracingRoot: join(__dirname, '../../'),
+    images:{
+        remotePatterns:[{
+            hostname:"eldenring.fanapis.com",
+            protocol:"https",
+        }]
+    }
 };
 
 export default nextConfig;

@@ -1,5 +1,7 @@
-import {ItemResponseSchema} from "@/model/api/item/item-schema";
+import {ItemResponse} from "@/model/api/item/item-schema";
+import {ArmorItemsResponse} from "@/model/api/item/armor-schema";
 
 export interface ItemsService {
-    getAllItems(): Promise<ItemResponseSchema>;
+    getAllItems(): Promise<ItemResponse>;
+    getAllArmors(): Promise<ArmorItemsResponse>;
 }

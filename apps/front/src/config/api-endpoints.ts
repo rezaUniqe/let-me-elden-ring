@@ -5,5 +5,6 @@ function buildApiUrl(path: string) {
 
 
 export const ApiEndpoints={
-    getALlItems:buildApiUrl(`/api/items`),
+    getAllItems:buildApiUrl(`/api/items`),
+    getAllArmors:buildApiUrl(`/api/armors`),
 }

@@ -1,21 +1,16 @@
 "use client"
 
 import {useAllItemsQuery} from "@/hooks/queries/use-get-all-books-query"
-import ItemCard from "@/components/item-card";
+import ItemGalleryList from "@/app/[locale]/_components/item-gallery-list";
 
-export default function ItemGallery() {
+export default function ItemGalleryContainer() {
     const {
         data: {data: items} = {data: []},
-    } = useAllItemsQuery() || {}
+    } = useAllItemsQuery()
 
     return (
         <div className="container mx-auto py-8 px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {items?.map((item) => (
-                    <ItemCard key={item.id} image={item.image} description={item.effect} title={item.name}
-                              isFavorite={false}/>
-                ))}
-            </div>
+            <ItemGalleryList items={items}/>
         </div>
     )
 }

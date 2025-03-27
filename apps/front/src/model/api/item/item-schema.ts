@@ -16,4 +16,5 @@ export const itemResponseSchema = z.object({
 });
 
 
-export type ItemResponseSchema=z.output<typeof itemResponseSchema>
+export type ItemResponse =z.output<typeof itemResponseSchema>
+export type Item =z.output<typeof itemSchema>

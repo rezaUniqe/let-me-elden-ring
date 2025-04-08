@@ -19,7 +19,7 @@ const AppSidebarMenu = () => {
   return (
     <SidebarMenu>
       {items.map((item) => (
-        <SidebarMenuItem  key={item.title}>
+        <SidebarMenuItem key={item.title}>
           <SidebarMenuButton asChild>
             <Link
               className={cn(

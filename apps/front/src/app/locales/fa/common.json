@@ -3,8 +3,9 @@
   "sidebar": {
     "items": "ایتم‌ها",
     "armors": "زره‌ها",
-    "weapons": "اسلحه‌ها" ,
+    "weapons": "اسلحه‌ها",
     "talismans": "طلسم‌ها",
-    "shields": "سپرها"
+    "shields": "سپرها",
+    "favorites": "علاقه‌مندی‌ها"
   }
 }

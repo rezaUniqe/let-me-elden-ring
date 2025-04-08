@@ -1,4 +1,4 @@
-import { BookLockIcon, Shield,Blocks,List } from "lucide-react";
+import { Blocks, List } from "lucide-react";
 import { useWebTranslations } from "@/hooks/use-web-translations";
 
 export function useTranslatedSidebarItems() {
@@ -10,24 +10,9 @@ export function useTranslatedSidebarItems() {
       icon: List,
     },
     {
-      title: t("sidebar.armors"),
-      url: "/armors",
+      title: t("sidebar.favorites"),
+      url: "/favorites",
       icon: Blocks,
-    },
-    {
-      title: t("sidebar.shields"),
-      url: "/shields",
-      icon: Shield,
-    },
-    {
-      title: t("sidebar.talismans"),
-      url: "/talismans",
-      icon: BookLockIcon,
-    },
-    {
-      title: t("sidebar.weapons"),
-      url: "/weapons",
-      icon: BookLockIcon,
     },
   ];
 }

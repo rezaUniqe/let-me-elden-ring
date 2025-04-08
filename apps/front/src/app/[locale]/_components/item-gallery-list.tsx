@@ -10,8 +10,7 @@ interface ItemGalleryListProps {
 const ItemGalleryList = ({ items }: ItemGalleryListProps) => {
   const addToFavItems = useAppStore((state) => state.addFavorite);
   const removeFromFavItems = useAppStore((state) => state.removeFavorite);
-  const favItems = useAppStore((state) => state.favoriteItems);
-  console.log(favItems)
+  const isItemFavorite = useAppStore((state) => state.isItemFavorite);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {items?.map((item) => (
@@ -27,6 +26,7 @@ const ItemGalleryList = ({ items }: ItemGalleryListProps) => {
           image={item.image}
           description={item.effect}
           title={item.name}
+          isFav={isItemFavorite(item)}
         />
       ))}
     </div>

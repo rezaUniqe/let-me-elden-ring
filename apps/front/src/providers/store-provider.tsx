@@ -14,7 +14,7 @@ export interface StoreProviderProps {
 export const StoreProvider = ({ children }: StoreProviderProps) => {
   const storeRef = useRef<StoreApi | null>(null);
   if (storeRef.current === null) {
-    storeRef.current = createAppStore({favoriteArmors: []});
+    storeRef.current = createAppStore({favoriteItems: []});
   }
 
   return (

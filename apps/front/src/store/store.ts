@@ -1,33 +1,33 @@
 import { createStore } from "zustand";
-import { ArmorItem } from "@/model/api/item/armor-schema";
+import {Item} from "@/model/api/item/item-schema";
 
 interface StoreState {
-  favoriteArmors: ArmorItem[];
+  favoriteItems: Item[];
 }
 
 interface Actions {
-  addFavoriteArmor: (armor: ArmorItem) => void;
-  removeFavoriteArmor: (armor: ArmorItem) => void;
+  addFavorite: (item: Item) => void;
+  removeFavorite: (item: Item) => void;
 }
 
 export type AppStore = StoreState & Actions;
 
 export const defaultInitState: StoreState = {
-  favoriteArmors: []
-}
+  favoriteItems: [],
+};
 
 export function createAppStore(initState: StoreState = defaultInitState) {
   return createStore<AppStore>()((set) => ({
     ...initState,
-    addFavoriteArmor: (armor) =>
+    addFavorite: (item) =>
       set((state) => ({
         ...state,
-        favoriteArmors: [...state.favoriteArmors, armor],
+        favoriteItems: [...state.favoriteItems, item],
       })),
-    removeFavoriteArmor: (armor) =>
+    removeFavorite: (item) =>
       set((state) => ({
         ...state,
-        favoriteArmors: state.favoriteArmors.filter((a) => a.id !== armor.id),
+        favoriteItems: state.favoriteItems.filter((a) => a.id !== item.id),
       })),
   }));
 }

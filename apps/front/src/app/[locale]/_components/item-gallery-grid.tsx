@@ -8,7 +8,7 @@ interface ItemGalleryListProps {
   items: Item[];
 }
 
-const ItemGalleryList = ({ items }: ItemGalleryListProps) => {
+const ItemGalleryGrid = ({ items }: ItemGalleryListProps) => {
   const addToFavItems = useAppStore((state) => state.addFavorite);
   const removeFromFavItems = useAppStore((state) => state.removeFavorite);
   const isItemFavorite = useAppStore((state) => state.isItemFavorite);
@@ -34,4 +34,4 @@ const ItemGalleryList = ({ items }: ItemGalleryListProps) => {
   );
 };
 
-export default ItemGalleryList;
+export default ItemGalleryGrid;

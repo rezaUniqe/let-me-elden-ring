@@ -1,6 +1,6 @@
 import { parseAsInteger, useQueryState } from "nuqs";
 
-export function usePagination() {
+export function usePaginationFromParams() {
   const [currentPage, setPage] = useQueryState(
     "page",
     parseAsInteger.withDefault(1),

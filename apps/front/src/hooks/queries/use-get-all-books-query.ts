@@ -6,7 +6,7 @@ import { type PaginationParams } from "../../../@types/pagination";
 
 export const useAllItemsQuery = createSuspenseQuery<
   ItemResponse,
-  PaginationParams
+  PaginationParams & { name?: string }
 >({
   queryKey: reactQueryKeys.queries.getAllItems,
   fetcher: async (params) => {

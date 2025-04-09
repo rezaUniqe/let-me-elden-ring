@@ -5,13 +5,14 @@ import { Card } from "@workspace/ui/components/card";
 import { Button } from "@workspace/ui/components/button";
 import { Heart } from "lucide-react";
 import { cn } from "@workspace/ui/lib/utils";
+import { placeholderImageUrls } from "@/config/constants";
 
 interface ItemCardProps {
   title: string;
   description: string;
   children?: ReactNode;
-  image: string;
-  onFavoriteButtonPressed?: (isFavorite:boolean) => void;
+  image: string | null;
+  onFavoriteButtonPressed?: (isFavorite: boolean) => void;
   isFav?: boolean;
 }
 
@@ -70,7 +71,7 @@ interface CardFaceProps {
 }
 
 interface CardFrontProps extends CardFaceProps {
-  image: string;
+  image: string | null;
 }
 
 function CardFront({
@@ -87,7 +88,7 @@ function CardFront({
       <Card className="overflow-hidden hover:shadow-lg w-full h-[480px] mx-auto">
         <div className="aspect-square relative bg-muted w-full h-[300px] overflow-hidden group">
           <Image
-            src={image}
+            src={image ?? placeholderImageUrls.cardItemImage}
             alt={title}
             fill
             className="object-contain bg-transparent group-hover:scale-110"

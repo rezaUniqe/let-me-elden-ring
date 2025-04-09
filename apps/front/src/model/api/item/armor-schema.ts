@@ -1,31 +1,30 @@
-import {z} from "zod";
-
+import { z } from "zod";
 
 const DamageNegationSchema = z.object({
-    name: z.string(),
-    amount: z.number(),
+  name: z.string(),
+  amount: z.number(),
 });
 
 const ResistanceSchema = z.object({
-    name: z.string(),
-    amount: z.number(),
+  name: z.string(),
+  amount: z.number(),
 });
 
 const armorSchema = z.object({
-    id: z.string(),
-    name: z.string(),
-    image: z.string().url(),
-    description: z.string(),
-    category: z.string(),
-    dmgNegation: z.array(DamageNegationSchema),
-    resistance: z.array(ResistanceSchema),
-    weight: z.number(),
+  id: z.string(),
+  name: z.string(),
+  image: z.string().url(),
+  description: z.string(),
+  category: z.string(),
+  dmgNegation: z.array(DamageNegationSchema),
+  resistance: z.array(ResistanceSchema),
+  weight: z.number(),
 });
 
 export const armorResponseSchema = z.object({
-    success: z.boolean(),
-    count: z.number(),
-    data: z.array(armorSchema),
+  success: z.boolean(),
+  count: z.number(),
+  data: z.array(armorSchema),
 });
 
 export type ArmorItemsResponse = z.output<typeof armorResponseSchema>;

@@ -6,6 +6,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "peerDependencies": {
+    "prettier": "^3.0.0"
+  },
   "exports": {
     ".": {
       "import": "./index.js",

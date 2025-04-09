@@ -2,6 +2,7 @@ import React from "react";
 import ItemCard from "@/components/item-card";
 import { Item } from "@/model/api/item/item-schema";
 import { useAppStore } from "@/providers/store-provider";
+import { placeholderImageUrls } from "@/config/constants";
 
 interface ItemGalleryListProps {
   items: Item[];
@@ -16,15 +17,15 @@ const ItemGalleryList = ({ items }: ItemGalleryListProps) => {
       {items?.map((item) => (
         <ItemCard
           onFavoriteButtonPressed={(isFavorite) => {
-              if(!isFavorite){
-                addToFavItems(item)
-              }else {
-                removeFromFavItems(item)
-              }
+            if (!isFavorite) {
+              addToFavItems(item);
+            } else {
+              removeFromFavItems(item);
+            }
           }}
           key={item.id}
-          image={item.image}
-          description={item.effect}
+          image={item.image ?? placeholderImageUrls.cardItemImage}
+          description={item.effect ?? ""}
           title={item.name}
           isFav={isItemFavorite(item)}
         />

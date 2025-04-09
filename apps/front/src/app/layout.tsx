@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@workspace/ui/globals.css";
 import { ReactNode } from "react";
 import { i18nConfig } from "../../i18nConfig";
-import {PublicEnvScript} from "next-runtime-env";
+import { PublicEnvScript } from "next-runtime-env";
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -24,15 +24,15 @@ export default async function RootLayout({
   children: ReactNode;
 }>) {
   return (
-      <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
-          <PublicEnvScript/>
+        <PublicEnvScript />
       </head>
       <body
-          className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
+        className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
       >
-      <main>{children}</main>
+        <main>{children}</main>
       </body>
-      </html>
+    </html>
   );
 }

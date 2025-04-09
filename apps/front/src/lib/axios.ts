@@ -1,6 +1,6 @@
 import axios from "axios";
-import {clientEnv} from "@/config/clientEnv";
+import { clientEnv } from "@/config/clientEnv";
 
-export const networkClient=axios.create({
-    baseURL:clientEnv.NEXT_PUBLIC_API_URL
-})
+export const networkClient = axios.create({
+  baseURL: clientEnv.NEXT_PUBLIC_API_URL,
+});

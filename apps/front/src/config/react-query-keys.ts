@@ -1,7 +1,6 @@
-
 export const reactQueryKeys = {
-    queries:{
-     getAllItems:["getAllItems"],
-     getAllArmors:["getAllArmors"],
-    }
-}
+  queries: {
+    getAllItems: ["getAllItems"],
+    getAllArmors: ["getAllArmors"],
+  },
+};

@@ -1,7 +1,7 @@
-import {getServerSideTranslations} from "../hooks/get-ssr-translations";
+import { getServerSideTranslations } from "../hooks/get-ssr-translations";
 import Resources from "../../@types/resources";
-import {ReactNode} from "react";
-import {I18NTranslationProvider} from "@/providers/I18N-translation-provider";
+import { ReactNode } from "react";
+import { I18NTranslationProvider } from "@/providers/I18N-translation-provider";
 
 interface Params {
   locale: string;
@@ -10,7 +10,11 @@ interface Params {
 }
 export const globalNs: Array<keyof Resources> = ["common"];
 
-export default async function TranslationProvider({ locale, ns, children }: Params) {
+export default async function TranslationProvider({
+  locale,
+  ns,
+  children,
+}: Params) {
   const { resources } = await getServerSideTranslations({
     locale: locale,
     ns: globalNs.concat(ns ?? []),
@@ -26,4 +30,3 @@ export default async function TranslationProvider({ locale, ns, children }: Para
     </I18NTranslationProvider>
   );
 }
-

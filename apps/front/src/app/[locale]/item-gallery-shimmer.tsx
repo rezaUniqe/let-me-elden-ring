@@ -1,5 +1,5 @@
 import React from "react";
-import {Skeleton} from "@workspace/ui/components/skeleton";
+import { Skeleton } from "@workspace/ui/components/skeleton";
 
 const ItemGalleryShimmer = () => {
   return (
@@ -7,7 +7,10 @@ const ItemGalleryShimmer = () => {
       {Array(6)
         .fill(null)
         ?.map((_, index) => (
-          <Skeleton key={index} className="rounded-lg w-full h-[480px] mx-auto" />
+          <Skeleton
+            key={index}
+            className="rounded-lg w-full h-[480px] mx-auto"
+          />
         ))}
     </div>
   );

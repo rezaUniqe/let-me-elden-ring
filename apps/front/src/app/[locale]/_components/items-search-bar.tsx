@@ -2,7 +2,6 @@
 "use client";
 
 import { Search } from "lucide-react";
-import { Button } from "@workspace/ui/components/button";
 import { Input } from "@workspace/ui/components/input";
 
 interface ItemSearchBarProps {

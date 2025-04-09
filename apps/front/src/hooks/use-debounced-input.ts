@@ -20,7 +20,7 @@ export function useDebouncedInput({
     return () => {
       clearTimeout(timeout);
     };
-  }, [valueToDebounce, time]);
+  }, [valueToDebounce, time, onAboutToDebounce]);
 
   return deBouncedValue;
 }

@@ -1,5 +1,5 @@
 // hooks/use-items-state.ts
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useQueryState, parseAsString } from "nuqs";
 import { usePaginationFromParams } from "@/hooks/use-pagination-from-params";
 import { useDebouncedInput } from "@/hooks/use-debounced-input";
@@ -14,13 +14,13 @@ export const useItemsState = () => {
   // Pagination state
   const { gotoPage, currentPage, limit } = usePaginationFromParams();
   const [totalPages, setTotalPages] = useState<number | null>(null);
-
+  const setPageToFirstPage = useCallback(() => {
+    gotoPage(1);
+  }, [gotoPage]);
   // Debounced search handling
   const debouncedName = useDebouncedInput({
     valueToDebounce: inputValue,
-    onAboutToDebounce: () => {
-      gotoPage(1);
-    },
+    onAboutToDebounce: setPageToFirstPage,
   });
 
   return {

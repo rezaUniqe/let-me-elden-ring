@@ -1,6 +1,7 @@
 import { parseAsInteger, useQueryState } from "nuqs";
+import { useCallback } from "react";
 
-export function usePagination() {
+export function usePaginationFromParams() {
   const [currentPage, setPage] = useQueryState(
     "page",
     parseAsInteger.withDefault(1),
@@ -9,9 +10,16 @@ export function usePagination() {
     "limit",
     parseAsInteger.withDefault(6),
   );
+
+  const gotoPage = useCallback(
+    (page: number) => {
+      setPage(page);
+    },
+    [setPage],
+  );
   return {
     currentPage,
-    gotoPage: setPage,
+    gotoPage: gotoPage,
     limit,
     setLimit,
   };

@@ -14,7 +14,7 @@ export function useHandleLoginForm() {
     },
   });
 
-  const onLoginFormSubmit = form.handleSubmit((data) => {
+  const onLoginFormSubmit = form.handleSubmit(() => {
     try {
       // toast({
       //   title: "Success",

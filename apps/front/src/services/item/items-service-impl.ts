@@ -1,12 +1,12 @@
 import { ItemsService } from "@/services/item/items-service";
 
 import { networkClient } from "@/lib/axios";
-import { ItemResponse, itemResponseSchema } from "@/model/api/item/item-schema";
+import { ItemResponse, itemResponseSchema } from "@/model/schema/item/item-schema";
 import { ApiEndpoints } from "@/config/api-endpoints";
 import {
   ArmorItemsResponse,
   armorResponseSchema,
-} from "@/model/api/item/armor-schema";
+} from "@/model/schema/item/armor-schema";
 import { PaginationParams } from "../../../@types/pagination";
 
 export class ItemsServiceImpl implements ItemsService {

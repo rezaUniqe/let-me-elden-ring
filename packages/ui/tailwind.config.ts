@@ -61,6 +61,10 @@ const baseUiTailwindConfig = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        "linear-gradient-main":
+          "linear-gradient(45deg, #A96B11, #E7AA02, #E7AA05, #DDCA14)",
+      },
     },
   },
   plugins: [tailwindcssAnimate],

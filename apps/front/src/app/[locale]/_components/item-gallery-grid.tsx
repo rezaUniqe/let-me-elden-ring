@@ -1,6 +1,6 @@
 import React from "react";
 import ItemCard from "@/components/item-card";
-import { Item } from "@/model/api/item/item-schema";
+import { Item } from "@/model/schema/item/item-schema";
 import { useAppStore } from "@/providers/store-provider";
 import { placeholderImageUrls } from "@/config/constants";
 

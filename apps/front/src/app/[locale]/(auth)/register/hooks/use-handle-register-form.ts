@@ -5,10 +5,12 @@ import {
   RegisterFormSchema,
   registerFormSchema,
 } from "@/model/schema/form/register";
+import { useRegisterMutation } from "@/hooks/mutations/use-register-mutation";
+import { useToast } from "@workspace/ui/hooks/use-toast";
 
 export function useHandleRegisterForm() {
   const router = useRouter();
-
+  const { mutateAsync: register, isPending } = useRegisterMutation();
   const form = useForm<RegisterFormSchema>({
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
@@ -17,31 +19,35 @@ export function useHandleRegisterForm() {
       confirmPassword: "",
     },
   });
+  const { toast } = useToast();
 
-  const onRegisterFormSubmit = form.handleSubmit(async () => {
+  const onRegisterFormSubmit = form.handleSubmit(async (data) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await register({
+        email: data.email,
+        password: data.password,
+        passwordConfirm: data.confirmPassword,
+      });
 
       toast({
         title: "Account created",
         description: "You have successfully created an account.",
       });
 
-      // Redirect to sign in page or dashboard after successful sign up
-      router.push("/sign-in");
-    } catch (error) {
+      router.push("/");
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (_) {
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
         variant: "destructive",
       });
-    } finally {
-      setIsLoading(false);
     }
   });
 
   return {
     form,
+    isPending,
     onRegisterFormSubmit,
   };
 }

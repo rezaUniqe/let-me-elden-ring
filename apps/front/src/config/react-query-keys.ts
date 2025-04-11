@@ -3,4 +3,7 @@ export const reactQueryKeys = {
     getAllItems: ["getAllItems"],
     getAllArmors: ["getAllArmors"],
   },
+  mutations:{
+    register:["register-account"]
+  }
 };

@@ -1,5 +1,5 @@
 import { createStore } from "zustand";
-import { Item } from "@/model/api/item/item-schema";
+import { Item } from "@/model/schema/item/item-schema";
 import { persist } from "zustand/middleware";
 
 interface StoreState {

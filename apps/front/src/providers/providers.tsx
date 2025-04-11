@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 import ReactQueryProvider from "@/providers/react-query-provider";
 import { StoreProvider } from "@/providers/store-provider";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import ToasterProvider from "@/providers/toaster-provider";
 
 export function Providers({
   children,
@@ -25,7 +26,9 @@ export function Providers({
               disableTransitionOnChange
               enableColorScheme
             >
-              <NuqsAdapter>{children}</NuqsAdapter>
+              <NuqsAdapter>
+                <ToasterProvider>{children}</ToasterProvider>
+              </NuqsAdapter>
             </NextThemesProvider>
           </SidebarProvider>
         </StoreProvider>

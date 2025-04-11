@@ -1,7 +1,7 @@
 import { createSuspenseQuery } from "react-query-kit";
 import { reactQueryKeys } from "@/config/react-query-keys";
 import { itemsService } from "@/services";
-import { ItemResponse } from "@/model/api/item/item-schema";
+import { ItemResponse } from "@/model/schema/item/item-schema";
 import { type PaginationParams } from "../../../@types/pagination";
 
 export const useAllItemsQuery = createSuspenseQuery<

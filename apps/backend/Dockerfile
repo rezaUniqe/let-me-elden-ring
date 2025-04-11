@@ -1,11 +1,11 @@
 FROM alpine:latest
 
 ARG PB_VERSION=0.25.7
+ENV BACKEND_PORT=3002
 
 RUN apk add --no-cache \
     unzip \
     ca-certificates
-
 # download and unzip PocketBase
 ADD https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_linux_amd64.zip /tmp/pb.zip
 RUN unzip /tmp/pb.zip -d /pb/
@@ -17,4 +17,4 @@ RUN unzip /tmp/pb.zip -d /pb/
 # COPY ./pb_hooks /pb/pb_hooks
 
 # start PocketBase
-CMD ["/pb/pocketbase", "serve", "--http=0.0.0.0:3002"]
+CMD /pb/pocketbase serve --http=0.0.0.0:$BACKEND_PORT

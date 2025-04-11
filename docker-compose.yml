@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: apps/backend/Dockerfile
     restart: always
+    env_file:
+      - .env
     ports:
       - '${BACKEND_PORT}:3002'
     networks:

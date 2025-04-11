@@ -1,7 +1,7 @@
 import { Providers } from "@/providers/providers";
-import AppSidebar from "@/components/sidebar/app-sidebar";
 import { ReactNode } from "react";
 import ThemeSwitch from "@/components/theme-switch";
+import LanguageChanger from "@/components/language-changer";
 
 async function Layout({
   children,
@@ -15,13 +15,11 @@ async function Layout({
   return (
     <Providers locale={locale}>
       <div className={"flex flex-col w-full h-full"}>
-        <div className={"h-[10px] flex flex-row justify-end p-6 w-full"}>
+        <div className={"flex flex-row justify-end w-full p-6"}>
           <ThemeSwitch />
+          <LanguageChanger />
         </div>
-        <div className={"flex flex-row"}>
-          <AppSidebar />
-          {children}
-        </div>
+        {children}
       </div>
     </Providers>
   );

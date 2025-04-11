@@ -3,6 +3,7 @@
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -11,11 +12,12 @@ import {
 import { Button } from "@workspace/ui/components/button";
 import { Input } from "@workspace/ui/components/input";
 import { useHandleLoginForm } from "@/app/[locale]/(auth)/login/hooks/use-handle-login-form";
-import { useState } from "react";
+import { PasswordInput } from "@/components/password-input";
+import { useWebTranslations } from "@/hooks/use-web-translations";
 
 export function SignInForm() {
-  const { form, onLoginFormSubmit } = useHandleLoginForm();
-  const [isLoading] = useState(false);
+  const { form, isPending, onLoginFormSubmit } = useHandleLoginForm();
+  const { t } = useWebTranslations(["login"]);
   return (
     <Form {...form}>
       <form onSubmit={onLoginFormSubmit} className="space-y-6">
@@ -24,52 +26,48 @@ export function SignInForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email address</FormLabel>
+              <FormLabel className="text-amber-200">
+                {t("login:form.fields.email.label")}
+              </FormLabel>
               <FormControl>
                 <Input
-                  {...field}
                   type="email"
-                  placeholder="you@example.com"
-                  autoComplete="email"
+                  placeholder={t("login:form.fields.email.placeholder")}
+                  {...field}
+                  className="border-amber-900/50 bg-black/50 text-amber-50 focus-visible:ring-amber-400"
                 />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="text-red-400" />
             </FormItem>
           )}
         />
-
         <FormField
           control={form.control}
           name="password"
           render={({ field }) => (
             <FormItem>
-              <div className="flex items-center justify-between">
-                <FormLabel>Password</FormLabel>
-                <Button
-                  variant="link"
-                  className="h-auto p-0 text-sm font-normal"
-                  onClick={(e) => {
-                    e.preventDefault();
-                  }}
-                >
-                  Forgot password?
-                </Button>
-              </div>
+              <FormLabel className="text-amber-200">
+                {t("login:form.fields.password.label")}
+              </FormLabel>
               <FormControl>
-                <Input
+                <PasswordInput
+                  placeholder={t("login:form.fields.password.placeholder")}
                   {...field}
-                  type="password"
-                  autoComplete="current-password"
-                  disabled={isLoading}
                 />
               </FormControl>
-              <FormMessage />
+              <FormDescription className="text-amber-200/50 text-xs">
+                {t("login:form.fields.password.hint")}
+              </FormDescription>
+              <FormMessage className="text-red-400" />
             </FormItem>
           )}
         />
-
-        <Button type="submit" className="w-full" disabled={isLoading}>
-          {isLoading ? "Signing in..." : "Sign in"}
+        <Button
+          disabled={isPending}
+          type="submit"
+          className="w-full bg-gradient-to-r from-amber-700 to-amber-500 hover:from-amber-600 hover:to-amber-400 text-black font-semibold"
+        >
+          {isPending ? "..." : t("login:form.actions.login.label")}
         </Button>
       </form>
     </Form>

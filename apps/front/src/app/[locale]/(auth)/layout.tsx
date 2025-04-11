@@ -1,10 +1,20 @@
 import { ReactNode } from "react";
+import TranslationProvider from "@/providers/translation-provider";
 
-const Layout = ({ children }: { children: ReactNode }) => {
+const Layout = async ({
+  children,
+  params,
+}: {
+  children: ReactNode;
+  params: Promise<{ locale: string }>;
+}) => {
+  const { locale } = await params;
   return (
-    <div className="w-screen flex min-h-screen flex-col items-center justify-center bg-muted/40 py-12 sm:px-6 lg:px-8">
-      {children}
-    </div>
+    <TranslationProvider ns={["login"]} locale={locale}>
+      <div className={"w-screen h-[90vh] grid place-content-center"}>
+        {children}
+      </div>
+    </TranslationProvider>
   );
 };
 

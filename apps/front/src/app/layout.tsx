@@ -24,14 +24,14 @@ export default async function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <head>
         <PublicEnvScript />
       </head>
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
       >
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );

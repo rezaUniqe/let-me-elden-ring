@@ -2,7 +2,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { useAllItemsQuery } from "@/hooks/queries/use-get-all-books-query";
-import ItemGalleryGrid from "@/app/[locale]/_components/item-gallery-grid";
+import ItemGalleryGrid from "@/app/[locale]/(with-side-bar)/_components/item-gallery-grid";
 
 interface ItemsDataContainerProps {
   currentPage: number;

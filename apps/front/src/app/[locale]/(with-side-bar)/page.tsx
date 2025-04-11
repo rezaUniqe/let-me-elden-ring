@@ -1,10 +1,10 @@
 "use client";
 import { Suspense } from "react";
-import ItemGalleryShimmer from "./_components/item-gallery-shimmer";
-import ItemsSearchBar from "./_components/items-search-bar";
+import ItemGalleryShimmer from "@/app/[locale]/(with-side-bar)/_components/item-gallery-shimmer";
+import ItemsSearchBar from "@/app/[locale]/(with-side-bar)/_components/items-search-bar";
 import PaginationWrapper from "@/components/pagination-wrapper";
 import { useItemsState } from "@/hooks/use-items-managment";
-import ItemsDataContainer from "./_components/items-data-container";
+import ItemsDataContainer from "@/app/[locale]/(with-side-bar)/_components/items-data-container";
 
 export default function Page() {
   const {

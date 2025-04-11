@@ -1,0 +1,11 @@
+{
+  "save": "save",
+  "sidebar": {
+    "items": "items",
+    "armors": "armors",
+    "weapons": "weapons",
+    "talismans": "talismans",
+    "shields": "shields",
+    "favorites": "favorites"
+  }
+}

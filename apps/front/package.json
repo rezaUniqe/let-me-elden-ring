@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "toc": "i18next-resources-for-ts interface -i ./src/app/locales/fa -o ./@types/resources.d.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.1",

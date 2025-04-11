@@ -1,21 +1,21 @@
 import Link from "next/link";
 import { SignUpForm } from "@/app/[locale]/(auth)/register/register-form";
 import {
+  Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@workspace/ui/components/card";
-import GradientOverlayBlock from "@/block/gradient-overlay-block";
 import { cn } from "@workspace/ui/lib/utils";
 
 const Register = () => {
   return (
-    <GradientOverlayBlock
+    <Card
       className={cn(
-        "w-[calc(100%-32px)] sm:max-w-[500px] rounded-2xl  border border-amber-900/50",
-        "bg-black/80 backdrop-blur-sm text-amber-50",
+        "w-[calc(100%-32px)] sm:max-w-[600px] rounded-2xl  border border-amber-900/50",
+        "bg-black/80 backdrop-blur-sm text-amber-50 m-auto",
         "shadow-[0_0_15px_rgba(255,183,0,0.2)]",
       )}
     >
@@ -43,7 +43,7 @@ const Register = () => {
           May grace guide your way, Tarnished
         </div>
       </CardFooter>
-    </GradientOverlayBlock>
+    </Card>
   );
 };
 

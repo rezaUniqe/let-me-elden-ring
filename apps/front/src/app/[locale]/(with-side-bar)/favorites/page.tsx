@@ -1,5 +1,5 @@
 "use client";
-import ItemGalleryGrid from "@/app/[locale]/_components/item-gallery-grid";
+import ItemGalleryGrid from "@/app/[locale]/(with-side-bar)/_components/item-gallery-grid";
 import { useAppStore } from "@/providers/store-provider";
 
 const FavoritesPage = () => {

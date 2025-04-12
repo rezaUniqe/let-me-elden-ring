@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { SignUpForm } from "@/app/[locale]/(auth)/register/register-form";
 import {
@@ -9,8 +10,10 @@ import {
   CardTitle,
 } from "@workspace/ui/components/card";
 import { cn } from "@workspace/ui/lib/utils";
+import { useWebTranslations } from "@/hooks/use-web-translations";
 
 const Register = () => {
+  const { t } = useWebTranslations(["register"]);
   return (
     <Card
       className={cn(
@@ -20,27 +23,22 @@ const Register = () => {
       )}
     >
       <CardHeader className="space-y-2 text-center">
-        <div className="mx-auto mb-2 relative w-16 h-16"></div>
         <CardTitle className="text-2xl font-bold text-amber-400 tracking-wider">
-          BECOME A TARNISHED
+          {t("register:title")}
         </CardTitle>
         <CardDescription className="text-amber-200/70">
-          Join our Elden Ring community to share your journey through the Lands
-          Between
+          {t("register:description")}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <SignUpForm />
       </CardContent>
       <CardFooter className="flex flex-col space-y-2 text-center text-sm">
-        <div className="text-amber-200/70">
-          Already have an account?{" "}
+        <div className="text-amber-200/70 flex flex-row items-center gap-1">
+          {t("register:loginLink")}
           <Link href="/login" className="text-amber-400 hover:underline">
-            Sign in
+            {t("register:loginButton")}
           </Link>
-        </div>
-        <div className="text-amber-200/50 text-xs">
-          May grace guide your way, Tarnished
         </div>
       </CardFooter>
     </Card>

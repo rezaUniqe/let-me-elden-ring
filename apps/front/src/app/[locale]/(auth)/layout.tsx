@@ -10,7 +10,7 @@ const Layout = async ({
 }) => {
   const { locale } = await params;
   return (
-    <TranslationProvider ns={["login"]} locale={locale}>
+    <TranslationProvider ns={["login", "register"]} locale={locale}>
       <div className={"w-screen h-[90vh] grid place-content-center"}>
         {children}
       </div>

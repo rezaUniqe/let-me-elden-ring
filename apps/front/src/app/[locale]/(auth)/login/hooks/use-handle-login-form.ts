@@ -31,7 +31,7 @@ export function useHandleLoginForm() {
     } catch (error) {
       toast({
         title: "Error",
-        description: "Invalid email or password. Please try again.",
+        description: `Invalid email or password. Please try again.${error}`,
         variant: "destructive",
       });
     }

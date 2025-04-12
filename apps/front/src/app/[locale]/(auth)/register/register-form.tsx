@@ -3,9 +3,9 @@
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
-  FormDescription,
   FormLabel,
   FormMessage,
 } from "@workspace/ui/components/form";
@@ -13,10 +13,11 @@ import { Input } from "@workspace/ui/components/input";
 import { useHandleRegisterForm } from "@/app/[locale]/(auth)/register/hooks/use-handle-register-form";
 import { Button } from "@workspace/ui/components/button";
 import { PasswordInput } from "@/components/password-input";
+import { useWebTranslations } from "@/hooks/use-web-translations";
 
 export function SignUpForm() {
   const { form, isPending, onRegisterFormSubmit } = useHandleRegisterForm();
-
+  const { t } = useWebTranslations(["register"]);
   return (
     <Form {...form}>
       <form onSubmit={onRegisterFormSubmit} className="space-y-6">
@@ -25,11 +26,13 @@ export function SignUpForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-amber-200">Email</FormLabel>
+              <FormLabel className="text-amber-200">
+                {t("register:form.fields.email.label")}
+              </FormLabel>
               <FormControl>
                 <Input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder={t("register:form.fields.email.placeholder")}
                   {...field}
                   className="border-amber-900/50 bg-black/50 text-amber-50 focus-visible:ring-amber-400"
                 />
@@ -43,13 +46,17 @@ export function SignUpForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-amber-200">Password</FormLabel>
+              <FormLabel className="text-amber-200">
+                {t("register:form.fields.password.label")}
+              </FormLabel>
               <FormControl>
-                <PasswordInput placeholder="Create a password" {...field} />
+                <PasswordInput
+                  placeholder={t("register:form.fields.password.placeholder")}
+                  {...field}
+                />
               </FormControl>
               <FormDescription className="text-amber-200/50 text-xs">
-                Password must be at least 8 characters with uppercase,
-                lowercase, and numbers
+                {t("register:form.fields.password.hint")}
               </FormDescription>
               <FormMessage className="text-red-400" />
             </FormItem>
@@ -60,9 +67,16 @@ export function SignUpForm() {
           name="confirmPassword"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-amber-200">Confirm Password</FormLabel>
+              <FormLabel className="text-amber-200">
+                {t("register:form.fields.confirmPassword.label")}
+              </FormLabel>
               <FormControl>
-                <PasswordInput placeholder="Confirm your password" {...field} />
+                <PasswordInput
+                  placeholder={t(
+                    "register:form.fields.confirmPassword.placeholder",
+                  )}
+                  {...field}
+                />
               </FormControl>
               <FormMessage className="text-red-400" />
             </FormItem>
@@ -73,7 +87,7 @@ export function SignUpForm() {
           type="submit"
           className="w-full bg-gradient-to-r from-amber-700 to-amber-500 hover:from-amber-600 hover:to-amber-400 text-black font-semibold"
         >
-          {isPending ? "loading..." : "Register"}
+          {isPending ? "loading..." : t("register:form.actions.register.label")}
         </Button>
       </form>
     </Form>

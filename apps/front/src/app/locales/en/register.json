@@ -1,0 +1,29 @@
+{
+  "title": "BECOME A TARNISHED",
+  "description": "Join our Elden Ring community to share your journey through the Lands Between",
+  "form": {
+    "fields": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Email"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Password",
+        "hint": "Password must be at least 8 characters with uppercase, lowercase, and numbers"
+      },
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "placeholder": "Confirm Password",
+        "hint": "Password must be at least 8 characters with uppercase, lowercase, and numbers"
+      }
+    },
+    "actions": {
+      "register": {
+        "label": "Register"
+      }
+    }
+  },
+  "loginButton": "login",
+  "loginLink": "Already have an account?"
+}

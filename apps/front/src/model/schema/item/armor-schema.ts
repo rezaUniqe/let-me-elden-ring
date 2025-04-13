@@ -13,7 +13,7 @@ const ResistanceSchema = z.object({
 const armorSchema = z.object({
   id: z.string(),
   name: z.string(),
-  image: z.string().url(),
+  image: z.string().url().nullish(),
   description: z.string(),
   category: z.string(),
   dmgNegation: z.array(DamageNegationSchema),
@@ -24,6 +24,7 @@ const armorSchema = z.object({
 export const armorResponseSchema = z.object({
   success: z.boolean(),
   count: z.number(),
+  total: z.number(),
   data: z.array(armorSchema),
 });
 

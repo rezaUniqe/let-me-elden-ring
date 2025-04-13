@@ -9,6 +9,7 @@ function buildBackendApiUrl(path: string) {
 export const ApiEndpoints = {
   getAllItems: buildApiUrl(`/api/items`),
   getAllArmors: buildApiUrl(`/api/armors`),
+  getAllShields: buildApiUrl(`/api/shields`),
   login: buildBackendApiUrl(`/api/collections/users/auth-with-password`),
   register: buildBackendApiUrl(`/api/collections/users/records`),
 };

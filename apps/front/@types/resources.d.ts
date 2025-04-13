@@ -8,6 +8,13 @@ interface Resources {
       "talismans": "طلسم‌ها",
       "shields": "سپرها",
       "favorites": "علاقه‌مندی‌ها"
+    },
+    "itemTypes": {
+      "items": "ایتم‌ها",
+      "armors": "زره‌ها",
+      "weapons": "اسلحه‌ها",
+      "talismans": "طلسم‌ها",
+      "shields": "سپرها"
     }
   },
   "login": {

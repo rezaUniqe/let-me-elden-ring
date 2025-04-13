@@ -7,5 +7,12 @@
     "talismans": "talismans",
     "shields": "shields",
     "favorites": "favorites"
+  },
+  "itemTypes": {
+    "items": "items",
+    "armors": "armors",
+    "weapons": "weapons",
+    "talismans": "talismans",
+    "shields": "shields"
   }
 }

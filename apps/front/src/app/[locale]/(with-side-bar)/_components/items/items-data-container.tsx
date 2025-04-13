@@ -1,8 +1,7 @@
-// components/ItemsDataContainer.tsx
 "use client";
-import React, { useEffect } from "react";
-import { useAllItemsQuery } from "@/hooks/queries/use-get-all-books-query";
+import { useEffect } from "react";
 import ItemGalleryGrid from "@/app/[locale]/(with-side-bar)/_components/item-gallery-grid";
+import { useAllItemsQuery } from "@/hooks/queries/use-all-items-query";
 
 interface ItemsDataContainerProps {
   currentPage: number;

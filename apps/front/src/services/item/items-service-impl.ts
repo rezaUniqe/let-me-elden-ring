@@ -1,18 +1,28 @@
 import { ItemsService } from "@/services/item/items-service";
 
 import { networkClient } from "@/lib/axios";
-import { ItemResponse, itemResponseSchema } from "@/model/schema/item/item-schema";
+import {
+  ItemResponse,
+  itemResponseSchema,
+} from "@/model/schema/item/item-schema";
 import { ApiEndpoints } from "@/config/api-endpoints";
 import {
   ArmorItemsResponse,
   armorResponseSchema,
 } from "@/model/schema/item/armor-schema";
 import { PaginationParams } from "../../../@types/pagination";
+import {
+  ShieldItemsResponse,
+  shieldResponseSchema,
+} from "@/model/schema/item/shield-schema";
 
 export class ItemsServiceImpl implements ItemsService {
-  async getAllArmors(): Promise<ArmorItemsResponse> {
+  async getAllArmors(params: PaginationParams): Promise<ArmorItemsResponse> {
     const response = await networkClient.get<ArmorItemsResponse>(
       ApiEndpoints.getAllArmors,
+      {
+        params,
+      },
     );
     return armorResponseSchema.parse(response.data);
   }
@@ -23,5 +33,13 @@ export class ItemsServiceImpl implements ItemsService {
       { params },
     );
     return itemResponseSchema.parse(response.data);
+  }
+
+  async getAllShields(params: PaginationParams): Promise<ShieldItemsResponse> {
+    const response = await networkClient.get<ItemResponse>(
+      ApiEndpoints.getAllShields,
+      { params },
+    );
+    return shieldResponseSchema.parse(response.data);
   }
 }

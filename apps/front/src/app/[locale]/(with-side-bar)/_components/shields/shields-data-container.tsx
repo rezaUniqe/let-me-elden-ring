@@ -2,25 +2,19 @@
 import { useEffect, useMemo } from "react";
 import ItemGalleryGrid from "@/app/[locale]/(with-side-bar)/_components/item-gallery-grid";
 import { useAllShieldQuery } from "@/hooks/queries/use-all-shield-query";
-
-interface ItemsDataContainerProps {
-  currentPage: number;
-  limit: number;
-  name?: string;
-  setTotalPages: (total: number) => void;
-}
+import { ApiFilter } from "../../../../../../@types/api-filter";
 
 const ShieldsDataContainer = ({
   currentPage,
   limit,
   name,
   setTotalPages,
-}: ItemsDataContainerProps) => {
+}: ApiFilter) => {
   const { data: { data: items, total } = { data: [] } } = useAllShieldQuery({
     variables: {
       page: currentPage,
       limit,
-      name: name ?? undefined,
+      name: !name ? undefined : name,
     },
   });
   useEffect(() => {

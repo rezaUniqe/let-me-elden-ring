@@ -15,22 +15,21 @@ async function Layout({
       <div
         className={cn(
           "fixed w-full z-10",
-          "flex flex-row gap-3 justify-end",
-          "border-b",
-          "p-3 mx-auto",
+          "flex flex-row gap-3 justify-between lg:justify-end",
+          "border-b p-3 mx-auto",
           "bg-background/80 backdrop-blur-md",
           "shadow-sm border-slate-200/20 dark:border-slate-700/20",
           "supports-[backdrop-filter]:bg-background/60",
         )}
       >
-        <SidebarTrigger className={"sm:absolute left-6"} />
+        <SidebarTrigger className={"lg:hidden"} />
         <div className={cn("flex flex-row gap-3")}>
           <ThemeSwitch />
           <LanguageChanger />
         </div>
       </div>
       <AppSidebar />
-      <div className={"mt-6 w-full h-full"}>{children}</div>
+      <div className={"relative top-[80px] w-full h-full"}>{children}</div>
     </div>
   );
 }

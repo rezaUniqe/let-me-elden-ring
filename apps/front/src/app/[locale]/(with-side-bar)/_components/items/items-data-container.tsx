@@ -2,25 +2,19 @@
 import { useEffect } from "react";
 import ItemGalleryGrid from "@/app/[locale]/(with-side-bar)/_components/item-gallery-grid";
 import { useAllItemsQuery } from "@/hooks/queries/use-all-items-query";
-
-interface ItemsDataContainerProps {
-  currentPage: number;
-  limit: number;
-  name?: string;
-  setTotalPages: (total: number) => void;
-}
+import { ApiFilter } from "../../../../../../@types/api-filter";
 
 const ItemsDataContainer = ({
   currentPage,
   limit,
   name,
   setTotalPages,
-}: ItemsDataContainerProps) => {
+}: ApiFilter) => {
   const { data: { data: items, total } = { data: [] } } = useAllItemsQuery({
     variables: {
       page: currentPage,
       limit,
-      name: name ?? undefined,
+      name: !name ? undefined : name,
     },
   });
 

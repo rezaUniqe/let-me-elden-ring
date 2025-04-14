@@ -20,9 +20,7 @@ export class ItemsServiceImpl implements ItemsService {
   async getAllArmors(params: PaginationParams): Promise<ArmorItemsResponse> {
     const response = await networkClient.get<ArmorItemsResponse>(
       ApiEndpoints.getAllArmors,
-      {
-        params,
-      },
+      { params: JSON.parse(JSON.stringify(params)) },
     );
     return armorResponseSchema.parse(response.data);
   }
@@ -30,7 +28,7 @@ export class ItemsServiceImpl implements ItemsService {
   async getAllItems(params: PaginationParams): Promise<ItemResponse> {
     const response = await networkClient.get<ItemResponse>(
       ApiEndpoints.getAllItems,
-      { params },
+      { params: JSON.parse(JSON.stringify(params)) },
     );
     return itemResponseSchema.parse(response.data);
   }
@@ -38,7 +36,7 @@ export class ItemsServiceImpl implements ItemsService {
   async getAllShields(params: PaginationParams): Promise<ShieldItemsResponse> {
     const response = await networkClient.get<ItemResponse>(
       ApiEndpoints.getAllShields,
-      { params },
+      { params: JSON.parse(JSON.stringify(params)) },
     );
     return shieldResponseSchema.parse(response.data);
   }

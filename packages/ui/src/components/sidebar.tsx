@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { VariantProps, cva } from "class-variance-authority";
-import { PanelLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { cn } from "../lib/utils";
 
@@ -287,7 +287,14 @@ const SidebarTrigger = React.forwardRef<
       }}
       {...props}
     >
-      <PanelLeft />
+      <div
+        className={
+          "bg-background shadow-sm border h-7 w-7 grid place-content-center rounded-full"
+        }
+      >
+        <ArrowLeft className={"group-data-[state=collapsed]:hidden"} />
+        <ArrowRight className={"group-data-[state=expanded]:hidden"} />
+      </div>
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );

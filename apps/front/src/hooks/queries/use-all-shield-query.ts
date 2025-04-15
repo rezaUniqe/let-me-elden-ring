@@ -10,8 +10,6 @@ export const useAllShieldQuery = createQuery<
 >({
   queryKey: reactQueryKeys.queries.getAllShields,
   fetcher: async (params) => {
-    const ss = await itemsService.getAllShields(params);
-    console.log(ss);
-    return ss;
+    return await itemsService.getAllShields(params);
   },
 });

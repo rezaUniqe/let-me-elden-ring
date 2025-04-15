@@ -1,11 +1,11 @@
 "use client";
 import { Suspense, useState } from "react";
-import PaginationWrapper from "@/components/pagination-wrapper";
 import { useItemsApiFiltersWithPagination } from "@/hooks/use-items-managment";
 import ItemTypeSelect from "@/app/[locale]/(with-side-bar)/_components/item-type-select";
 import ItemsGridByTypeContainer from "@/app/[locale]/(with-side-bar)/_components/items-grid-by-type-container";
 import ItemsSearchBar from "@/app/[locale]/(with-side-bar)/_components/items-search-bar";
 import ItemGridShimmer from "@/components/item-grid-shimmer";
+import ListWithPagination from "@/components/list-with-pagination";
 
 export default function Page() {
   const {
@@ -38,25 +38,22 @@ export default function Page() {
           className="w-[250px]"
         />
       </div>
-
       <Suspense fallback={<ItemGridShimmer />}>
-        <ItemsGridByTypeContainer
-          type={itemType}
-          setTotalPages={setTotalPages}
+        <ListWithPagination
           currentPage={currentPage}
+          totalPages={totalPages}
           limit={limit}
-          name={debouncedName}
-        />
+          gotoPage={gotoPage}
+        >
+          <ItemsGridByTypeContainer
+            type={itemType}
+            setTotalPages={setTotalPages}
+            currentPage={currentPage}
+            limit={limit}
+            name={debouncedName}
+          />
+        </ListWithPagination>
       </Suspense>
-
-      {totalPages && (
-        <PaginationWrapper
-          currentPage={currentPage}
-          totalItems={totalPages}
-          pageLimit={limit}
-          onPageChange={gotoPage}
-        />
-      )}
     </div>
   );
 }
